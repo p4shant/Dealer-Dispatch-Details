@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamn Enterprises - Dealer Dispatch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-solar-panel"></i> Kamn Enterprises Dealer Dispatch Details</h1>
+        </header>
+        
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-calendar-alt"></i> Dispatch Information
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="dispatch-datetime"><i class="fas fa-clock"></i> Date and Time</label>
+                    <input type="datetime-local" id="dispatch-datetime" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dealer"><i class="fas fa-user-tie"></i> Dealer Name</label>
+                    <select id="dealer" class="form-control" required>
+                        <option value="">Select Dealer</option>
+                        <option value="NV">NV</option>
+                        <option value="Green Sign">Green Sign</option>
+                        <option value="Arpit Solar">Arpit Solar</option>
+                        <option value="JDM">JDM</option>
+                        <option value="Sri Saluday">Sri Saluday</option>
+                        <option value="Nancan">Nancan</option>
+                        <option value="new">Add New Dealer</option>
+                    </select>
+                    <div id="new-dealer-container" class="new-dealer-container">
+                        <label for="new-dealer"><i class="fas fa-plus-circle"></i> New Dealer Name</label>
+                        <input type="text" id="new-dealer" class="form-control" placeholder="Enter new dealer name">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="saler"><i class="fas fa-user"></i> Saler Name</label>
+                    <select id="saler" class="form-control" required>
+                        <option value="Bablu">Bablu</option>
+                        <option value="SN Singh">SN Singh</option>
+                        <option value="Devesh">Devesh</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="district"><i class="fas fa-map-marker-alt"></i> Destination District</label>
+                    <select id="district" class="form-control" required>
+                        <option value="">Select District</option>
+                        <option value="Ghazipur">Ghazipur</option>
+                        <option value="Varanasi">Varanasi</option>
+                        <option value="Ballia">Ballia</option>
+                        <option value="Azamgarh">Azamgarh</option>
+                        <option value="Mau">Mau</option>
+                        <option value="Chandauli">Chandauli</option>
+                        <option value="Lucknow">Lucknow</option>
+                        <option value="Jaunpur">Jaunpur</option>
+                        <option value="Mirzapur">Mirzapur</option>
+                        <option value="Bhadohi">Bhadohi</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-solar-panel"></i> Solar System Types
+            </div>
+            <div class="card-body">
+                <div class="system-grid">
+                    <div class="system-item">
+                        <label>2 KW</label>
+                        <input type="number" min="0" value="0" id="sys-2kw">
+                    </div>
+                    <div class="system-item">
+                        <label>3 KW</label>
+                        <input type="number" min="0" value="0" id="sys-3kw">
+                    </div>
+                    <div class="system-item">
+                        <label>4 KW</label>
+                        <input type="number" min="0" value="0" id="sys-4kw">
+                    </div>
+                    <div class="system-item">
+                        <label>5 (I) KW</label>
+                        <input type="number" min="0" value="0" id="sys-5i-kw">
+                    </div>
+                    <div class="system-item">
+                        <label>5 (III) KW</label>
+                        <input type="number" min="0" value="0" id="sys-5iii-kw">
+                    </div>
+                    <div class="system-item">
+                        <label>6 KW</label>
+                        <input type="number" min="0" value="0" id="sys-6kw">
+                    </div>
+                    <div class="system-item">
+                        <label>8 KW</label>
+                        <input type="number" min="0" value="0" id="sys-8kw">
+                    </div>
+                    <div class="system-item">
+                        <label>10 KW</label>
+                        <input type="number" min="0" value="0" id="sys-10kw">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-cogs"></i> System Components per Type
+            </div>
+            <div class="card-body">
+                <div class="system-components-container">
+                    <!-- 2KW System Components -->
+                    <div class="system-component-card">
+                        <div class="system-component-header">
+                            <h3><i class="fas fa-solar-panel"></i> 2KW System</h3>
+                            <div class="quantity" id="qty-2kw">Qty: 0</div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-sun"></i> Panel</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="2kw-panel-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="2kw-panel-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-bolt"></i> Inverter</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="2kw-inverter-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="2kw-inverter-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-server"></i> ACDB/DCDB</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="2kw-acdb-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="2kw-acdb-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-anchor"></i> Earthing Rod</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="2kw-earthing-rod-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="2kw-earthing-rod-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-flask"></i> Earthing Chemical</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="2kw-earthing-chemical-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="2kw-earthing-chemical-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-cloud-bolt"></i> Lightning Arrestor</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="2kw-la-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="2kw-la-manual" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 3KW System Components -->
+                    <div class="system-component-card">
+                        <div class="system-component-header">
+                            <h3><i class="fas fa-solar-panel"></i> 3KW System</h3>
+                            <div class="quantity" id="qty-3kw">Qty: 0</div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-sun"></i> Panel</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="3kw-panel-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="3kw-panel-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-bolt"></i> Inverter</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="3kw-inverter-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="3kw-inverter-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-server"></i> ACDB/DCDB</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="3kw-acdb-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="3kw-acdb-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-anchor"></i> Earthing Rod</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="3kw-earthing-rod-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="3kw-earthing-rod-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-flask"></i> Earthing Chemical</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="3kw-earthing-chemical-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="3kw-earthing-chemical-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-cloud-bolt"></i> Lightning Arrestor</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="3kw-la-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="3kw-la-manual" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 4KW System Components -->
+                    <div class="system-component-card">
+                        <div class="system-component-header">
+                            <h3><i class="fas fa-solar-panel"></i> 4KW System</h3>
+                            <div class="quantity" id="qty-4kw">Qty: 0</div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-sun"></i> Panel</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="4kw-panel-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="4kw-panel-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-bolt"></i> Inverter</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="4kw-inverter-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="4kw-inverter-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-server"></i> ACDB/DCDB</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="4kw-acdb-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="4kw-acdb-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-anchor"></i> Earthing Rod</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="4kw-earthing-rod-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="4kw-earthing-rod-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-flask"></i> Earthing Chemical</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="4kw-earthing-chemical-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="4kw-earthing-chemical-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-cloud-bolt"></i> Lightning Arrestor</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="4kw-la-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="4kw-la-manual" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 5(I)KW System Components -->
+                    <div class="system-component-card">
+                        <div class="system-component-header">
+                            <h3><i class="fas fa-solar-panel"></i> 5(I)KW System</h3>
+                            <div class="quantity" id="qty-5i-kw">Qty: 0</div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-sun"></i> Panel</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5i-panel-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5i-panel-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-bolt"></i> Inverter</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5i-inverter-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5i-inverter-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-server"></i> ACDB/DCDB</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5i-acdb-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5i-acdb-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-anchor"></i> Earthing Rod</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5i-earthing-rod-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5i-earthing-rod-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-flask"></i> Earthing Chemical</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5i-earthing-chemical-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5i-earthing-chemical-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-cloud-bolt"></i> Lightning Arrestor</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5i-la-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5i-la-manual" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 5(III)KW System Components -->
+                    <div class="system-component-card">
+                        <div class="system-component-header">
+                            <h3><i class="fas fa-solar-panel"></i> 5(III)KW System</h3>
+                            <div class="quantity" id="qty-5iii-kw">Qty: 0</div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-sun"></i> Panel</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5iii-panel-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5iii-panel-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-bolt"></i> Inverter</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5iii-inverter-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5iii-inverter-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-server"></i> ACDB/DCDB</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5iii-acdb-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5iii-acdb-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-anchor"></i> Earthing Rod</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5iii-earthing-rod-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5iii-earthing-rod-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-flask"></i> Earthing Chemical</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5iii-earthing-chemical-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5iii-earthing-chemical-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-cloud-bolt"></i> Lightning Arrestor</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="5iii-la-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="5iii-la-manual" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 6KW System Components -->
+                    <div class="system-component-card">
+                        <div class="system-component-header">
+                            <h3><i class="fas fa-solar-panel"></i> 6KW System</h3>
+                            <div class="quantity" id="qty-6kw">Qty: 0</div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-sun"></i> Panel</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="6kw-panel-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="6kw-panel-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-bolt"></i> Inverter</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="6kw-inverter-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="6kw-inverter-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-server"></i> ACDB/DCDB</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="6kw-acdb-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="6kw-acdb-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-anchor"></i> Earthing Rod</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="6kw-earthing-rod-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="6kw-earthing-rod-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-flask"></i> Earthing Chemical</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="6kw-earthing-chemical-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="6kw-earthing-chemical-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-cloud-bolt"></i> Lightning Arrestor</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="6kw-la-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="6kw-la-manual" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 8KW System Components -->
+                    <div class="system-component-card">
+                        <div class="system-component-header">
+                            <h3><i class="fas fa-solar-panel"></i> 8KW System</h3>
+                            <div class="quantity" id="qty-8kw">Qty: 0</div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-sun"></i> Panel</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="8kw-panel-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="8kw-panel-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-bolt"></i> Inverter</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="8kw-inverter-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="8kw-inverter-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-server"></i> ACDB/DCDB</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="8kw-acdb-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="8kw-acdb-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-anchor"></i> Earthing Rod</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="8kw-earthing-rod-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="8kw-earthing-rod-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-flask"></i> Earthing Chemical</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="8kw-earthing-chemical-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="8kw-earthing-chemical-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-cloud-bolt"></i> Lightning Arrestor</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="8kw-la-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="8kw-la-manual" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 10KW System Components -->
+                    <div class="system-component-card">
+                        <div class="system-component-header">
+                            <h3><i class="fas fa-solar-panel"></i> 10KW System</h3>
+                            <div class="quantity" id="qty-10kw">Qty: 0</div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-sun"></i> Panel</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="10kw-panel-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="10kw-panel-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-bolt"></i> Inverter</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="10kw-inverter-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="10kw-inverter-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-server"></i> ACDB/DCDB</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="10kw-acdb-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="10kw-acdb-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-anchor"></i> Earthing Rod</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="10kw-earthing-rod-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="10kw-earthing-rod-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-flask"></i> Earthing Chemical</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="10kw-earthing-chemical-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="10kw-earthing-chemical-manual" min="0" value="0">
+                            </div>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h4><i class="fas fa-cloud-bolt"></i> Lightning Arrestor</h4>
+                            <div class="component-row">
+                                <label>Auto Quantity:</label>
+                                <input type="number" id="10kw-la-auto" value="0" readonly>
+                            </div>
+                            <div class="component-row">
+                                <label>Manual Quantity:</label>
+                                <input type="number" id="10kw-la-manual" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-calculator"></i> Total Components Summary
+            </div>
+            <div class="card-body">
+                <div class="summary-table-wrapper">
+                    <table class="summary-table">
+                        <thead>
+                            <tr>
+                                <th>System Type</th>
+                                <th colspan="2">Panel</th>
+                                <th colspan="2">Inverter</th>
+                                <th colspan="2">ACDB/DCDB</th>
+                                <th colspan="2">Earthing Rod</th>
+                                <th colspan="2">Earthing Chemical</th>
+                                <th colspan="2">LA</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>Auto</th>
+                                <th>Manual</th>
+                                <th>Auto</th>
+                                <th>Manual</th>
+                                <th>Auto</th>
+                                <th>Manual</th>
+                                <th>Auto</th>
+                                <th>Manual</th>
+                                <th>Auto</th>
+                                <th>Manual</th>
+                                <th>Auto</th>
+                                <th>Manual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2 KW</td>
+                                <td id="sum-2kw-panel-auto">0</td>
+                                <td id="sum-2kw-panel-manual">0</td>
+                                <td id="sum-2kw-inverter-auto">0</td>
+                                <td id="sum-2kw-inverter-manual">0</td>
+                                <td id="sum-2kw-acdb-auto">0</td>
+                                <td id="sum-2kw-acdb-manual">0</td>
+                                <td id="sum-2kw-earthing-rod-auto">0</td>
+                                <td id="sum-2kw-earthing-rod-manual">0</td>
+                                <td id="sum-2kw-earthing-chemical-auto">0</td>
+                                <td id="sum-2kw-earthing-chemical-manual">0</td>
+                                <td id="sum-2kw-la-auto">0</td>
+                                <td id="sum-2kw-la-manual">0</td>
+                            </tr>
+                            <tr>
+                                <td>3 KW</td>
+                                <td id="sum-3kw-panel-auto">0</td>
+                                <td id="sum-3kw-panel-manual">0</td>
+                                <td id="sum-3kw-inverter-auto">0</td>
+                                <td id="sum-3kw-inverter-manual">0</td>
+                                <td id="sum-3kw-acdb-auto">0</td>
+                                <td id="sum-3kw-acdb-manual">0</td>
+                                <td id="sum-3kw-earthing-rod-auto">0</td>
+                                <td id="sum-3kw-earthing-rod-manual">0</td>
+                                <td id="sum-3kw-earthing-chemical-auto">0</td>
+                                <td id="sum-3kw-earthing-chemical-manual">0</td>
+                                <td id="sum-3kw-la-auto">0</td>
+                                <td id="sum-3kw-la-manual">0</td>
+                            </tr>
+                            <tr>
+                                <td>4 KW</td>
+                                <td id="sum-4kw-panel-auto">0</td>
+                                <td id="sum-4kw-panel-manual">0</td>
+                                <td id="sum-4kw-inverter-auto">0</td>
+                                <td id="sum-4kw-inverter-manual">0</td>
+                                <td id="sum-4kw-acdb-auto">0</td>
+                                <td id="sum-4kw-acdb-manual">0</td>
+                                <td id="sum-4kw-earthing-rod-auto">0</td>
+                                <td id="sum-4kw-earthing-rod-manual">0</td>
+                                <td id="sum-4kw-earthing-chemical-auto">0</td>
+                                <td id="sum-4kw-earthing-chemical-manual">0</td>
+                                <td id="sum-4kw-la-auto">0</td>
+                                <td id="sum-4kw-la-manual">0</td>
+                            </tr>
+                            <tr>
+                                <td>5 (I) KW</td>
+                                <td id="sum-5i-panel-auto">0</td>
+                                <td id="sum-5i-panel-manual">0</td>
+                                <td id="sum-5i-inverter-auto">0</td>
+                                <td id="sum-5i-inverter-manual">0</td>
+                                <td id="sum-5i-acdb-auto">0</td>
+                                <td id="sum-5i-acdb-manual">0</td>
+                                <td id="sum-5i-earthing-rod-auto">0</td>
+                                <td id="sum-5i-earthing-rod-manual">0</td>
+                                <td id="sum-5i-earthing-chemical-auto">0</td>
+                                <td id="sum-5i-earthing-chemical-manual">0</td>
+                                <td id="sum-5i-la-auto">0</td>
+                                <td id="sum-5i-la-manual">0</td>
+                            </tr>
+                            <tr>
+                                <td>5 (III) KW</td>
+                                <td id="sum-5iii-panel-auto">0</td>
+                                <td id="sum-5iii-panel-manual">0</td>
+                                <td id="sum-5iii-inverter-auto">0</td>
+                                <td id="sum-5iii-inverter-manual">0</td>
+                                <td id="sum-5iii-acdb-auto">0</td>
+                                <td id="sum-5iii-acdb-manual">0</td>
+                                <td id="sum-5iii-earthing-rod-auto">0</td>
+                                <td id="sum-5iii-earthing-rod-manual">0</td>
+                                <td id="sum-5iii-earthing-chemical-auto">0</td>
+                                <td id="sum-5iii-earthing-chemical-manual">0</td>
+                                <td id="sum-5iii-la-auto">0</td>
+                                <td id="sum-5iii-la-manual">0</td>
+                            </tr>
+                            <tr>
+                                <td>6 KW</td>
+                                <td id="sum-6kw-panel-auto">0</td>
+                                <td id="sum-6kw-panel-manual">0</td>
+                                <td id="sum-6kw-inverter-auto">0</td>
+                                <td id="sum-6kw-inverter-manual">0</td>
+                                <td id="sum-6kw-acdb-auto">0</td>
+                                <td id="sum-6kw-acdb-manual">0</td>
+                                <td id="sum-6kw-earthing-rod-auto">0</td>
+                                <td id="sum-6kw-earthing-rod-manual">0</td>
+                                <td id="sum-6kw-earthing-chemical-auto">0</td>
+                                <td id="sum-6kw-earthing-chemical-manual">0</td>
+                                <td id="sum-6kw-la-auto">0</td>
+                                <td id="sum-6kw-la-manual">0</td>
+                            </tr>
+                            <tr>
+                                <td>8 KW</td>
+                                <td id="sum-8kw-panel-auto">0</td>
+                                <td id="sum-8kw-panel-manual">0</td>
+                                <td id="sum-8kw-inverter-auto">0</td>
+                                <td id="sum-8kw-inverter-manual">0</td>
+                                <td id="sum-8kw-acdb-auto">0</td>
+                                <td id="sum-8kw-acdb-manual">0</td>
+                                <td id="sum-8kw-earthing-rod-auto">0</td>
+                                <td id="sum-8kw-earthing-rod-manual">0</td>
+                                <td id="sum-8kw-earthing-chemical-auto">0</td>
+                                <td id="sum-8kw-earthing-chemical-manual">0</td>
+                                <td id="sum-8kw-la-auto">0</td>
+                                <td id="sum-8kw-la-manual">0</td>
+                            </tr>
+                            <tr>
+                                <td>10 KW</td>
+                                <td id="sum-10kw-panel-auto">0</td>
+                                <td id="sum-10kw-panel-manual">0</td>
+                                <td id="sum-10kw-inverter-auto">0</td>
+                                <td id="sum-10kw-inverter-manual">0</td>
+                                <td id="sum-10kw-acdb-auto">0</td>
+                                <td id="sum-10kw-acdb-manual">0</td>
+                                <td id="sum-10kw-earthing-rod-auto">0</td>
+                                <td id="sum-10kw-earthing-rod-manual">0</td>
+                                <td id="sum-10kw-earthing-chemical-auto">0</td>
+                                <td id="sum-10kw-earthing-chemical-manual">0</td>
+                                <td id="sum-10kw-la-auto">0</td>
+                                <td id="sum-10kw-la-manual">0</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td><strong>Total</strong></td>
+                                <td id="sum-total-panel-auto">0</td>
+                                <td id="sum-total-panel-manual">0</td>
+                                <td id="sum-total-inverter-auto">0</td>
+                                <td id="sum-total-inverter-manual">0</td>
+                                <td id="sum-total-acdb-auto">0</td>
+                                <td id="sum-total-acdb-manual">0</td>
+                                <td id="sum-total-earthing-rod-auto">0</td>
+                                <td id="sum-total-earthing-rod-manual">0</td>
+                                <td id="sum-total-earthing-chemical-auto">0</td>
+                                <td id="sum-total-earthing-chemical-manual">0</td>
+                                <td id="sum-total-la-auto">0</td>
+                                <td id="sum-total-la-manual">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-container">
+            <button class="btn btn-reset" id="reset-btn">
+                <i class="fas fa-redo"></i> Reset Form
+            </button>
+            <button class="btn btn-submit" id="submit-btn">
+                <i class="fas fa-paper-plane"></i> Submit Dispatch
+            </button>
+        </div>
+        
+        <footer>
+            <p>© 2023 Kamn Enterprises | Solar Solutions Provider</p>
+        </footer>
+    </div>
+    
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-text">Dispatch saved successfully!</span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
