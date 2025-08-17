@@ -3,11 +3,11 @@ const componentsPerSystem = {
   "2KW": { panel: 4, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
   "3KW": { panel: 6, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
   "4KW": { panel: 8, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
-  "5(I)KW": { panel: 10, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
-  "5(III)KW": { panel: 10, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
-  "6KW": { panel: 12, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
-  "8KW": { panel: 16, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
-  "10KW": { panel: 20, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
+  "5(I)KW": { panel: 9, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
+  "5(III)KW": { panel: 9, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
+  "6KW": { panel: 11, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
+  "8KW": { panel: 15, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
+  "10KW": { panel: 18, inverter: 1, acdb_dcdb: 1, earthing_rod: 3, earthing_chemical: 3, la: 1 },
 };
 
 // DOM Elements
@@ -454,4 +454,5 @@ window.addEventListener("DOMContentLoaded", () => {
       submitForm();
     });
   }
+
 });
